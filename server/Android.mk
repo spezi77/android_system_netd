@@ -83,6 +83,10 @@ ifdef WPA_SUPPLICANT_VERSION
   LOCAL_C_INCLUDES += external/wpa_supplicant_8/src/common
 endif
 
+ifeq ($(TARGET_NO_NETD_AF_INET),true)
+    LOCAL_CFLAGS += -DNO_ADDRESSFAMELY_INET
+endif
+
 include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
