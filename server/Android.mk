@@ -68,6 +68,10 @@ LOCAL_SRC_FILES := \
         main.cpp \
         oem_iptables_hook.cpp \
 
+ifeq ($(TARGET_NO_NETD_AF_INET),true)
+    LOCAL_CFLAGS += -DNO_ADDRESSFAMELY_INET
+endif
+
 include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)

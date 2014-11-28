@@ -77,7 +77,11 @@ const uint16_t NETLINK_CREATE_REQUEST_FLAGS = NETLINK_REQUEST_FLAGS | NLM_F_CREA
 
 const sockaddr_nl NETLINK_ADDRESS = {AF_NETLINK, 0, 0, 0};
 
+#ifdef NO_ADDRESSFAMELY_INET
+const uint8_t AF_FAMILIES[] = {AF_INET6};
+#else
 const uint8_t AF_FAMILIES[] = {AF_INET, AF_INET6};
+#endif
 
 const char* const IP_VERSIONS[] = {"-4", "-6"};
 
