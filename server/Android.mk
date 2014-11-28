@@ -86,6 +86,10 @@ ifeq ($(BOARD_HAS_QCOM_WLAN), true)
   LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/sdk/softap/include
 endif
 
+ifeq ($(TARGET_NO_NETD_AF_INET),true)
+    LOCAL_CFLAGS += -DNO_ADDRESSFAMELY_INET
+endif
+
 include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
