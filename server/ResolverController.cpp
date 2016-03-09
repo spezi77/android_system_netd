@@ -33,13 +33,14 @@ int ResolverController::setDnsServers(unsigned netId, const char* domains,
     if (DBG) {
         ALOGD("setDnsServers netId = %u\n", netId);
     }
-    _resolv_set_nameservers_for_net(netId, servers, numservers, domains);
+    // TODO(imaipi): extend setDnsServers() to pass params.
+    _resolv_set_nameservers_for_net(netId, servers, numservers, domains, NULL);
 
     return 0;
 }
 
 int ResolverController::clearDnsServers(unsigned netId) {
-    _resolv_set_nameservers_for_net(netId, NULL, 0, "");
+    _resolv_set_nameservers_for_net(netId, NULL, 0, "", NULL);
     if (DBG) {
         ALOGD("clearDnsServers netId = %u\n", netId);
     }
